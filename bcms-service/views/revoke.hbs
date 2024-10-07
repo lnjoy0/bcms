@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>区块链证书管理系统</title>
+<link rel="icon" href="favicon.ico" type="image/ico">
+<meta name="keywords" content="BCMS">
+<meta name="description" content="BCMS">
+<meta name="author" content="lunasec">
+<link href="/css/bootstrap.min.css" rel="stylesheet">
+<link href="/css/materialdesignicons.min.css" rel="stylesheet">
+<link href="/css/animate.css" rel="stylesheet">
+<link href="/css/style.min.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="lyear-layout-web">
+  <div class="lyear-layout-container">
+    <!--左侧导航-->
+    <aside class="lyear-layout-sidebar">
+      
+      <!-- logo -->
+      <div id="logo" class="sidebar-header">
+        <a href="/"><img src="/img/logo.png" title="bcms" alt="bcms" /></a>
+      </div>
+      <div class="lyear-layout-sidebar-scroll"> 
+        
+        <nav class="sidebar-main">
+          <ul class="nav nav-drawer">
+            <li class="nav-item "> <a href="/query"><i class="mdi mdi-magnify"></i> 证书查询</a> </li>
+            <li class="nav-item "> <a href="/verify"><i class="mdi mdi-help"></i> 证书核验</a> </li>
+            <li class="nav-item "> <a href="/admin/issue"><i class="mdi mdi-account-plus"></i> 证书颁发</a> </li>
+            <li class="nav-item active"> <a href="/admin/revoke"><i class="mdi mdi-account-remove"></i> 证书撤销</a> </li>
+          </ul>
+        </nav>
+        
+      </div>
+      
+    </aside>
+    <!--End 左侧导航-->
+    
+    <!--头部信息-->
+    <header class="lyear-layout-header">
+      
+      <nav class="navbar navbar-default">
+        <div class="topbar">
+          
+          <div class="topbar-left">
+            <div class="lyear-aside-toggler">
+              <span class="lyear-toggler-bar"></span>
+              <span class="lyear-toggler-bar"></span>
+              <span class="lyear-toggler-bar"></span>
+            </div>
+            <span class="navbar-page-title"> 证书撤销 </span>
+          </div>
+          
+          <ul class="topbar-right">
+            <li class="dropdown dropdown-profile">
+              <a href="javascript:void(0)" data-toggle="dropdown">
+                <img class="img-avatar img-avatar-48 m-r-10" src="/img/rabbit.gif" alt="头像" />
+              </a>
+            </li>
+            <a class="btn btn-success btn-w-xs btn-round" href="/admin/logout" type="button">退出</a>
+          </ul>
+        </div>
+      </nav>
+      
+    </header>
+    <!--End 头部信息-->
+    
+    <!--页面主要内容-->
+    <main class="lyear-layout-content">
+      
+      <div class="container-fluid">
+        
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-header"><h4>证书撤销</h4></div>
+              <div class="card-body">
+                <form action="/query" method="post">
+                  <div class="form-group">
+                    <label for="example-nf-bianhao">证书编号</label>
+                    <p></p>
+                    <input class="form-control" type="text" id="id" name="id" placeholder="请输入证书编号..">
+                  </div>
+                  <div class="form-group">
+                    <button class="btn btn-primary" id="button" onclick='check()' type="button">撤销证书</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!--End 页面主要内容-->
+  </div>
+</div>
+
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/perfect-scrollbar.min.js"></script>
+<script src="/js/bootstrap-notify.min.js"></script>
+<script type="text/javascript" src="/js/lightyear.js"></script>
+<script type="text/javascript" src="/js/main.min.js"></script>
+<script>
+    function check(){
+        var id=$("#id").val();
+        var text=$('#button').text();
+        $.ajax({
+            url: '/admin/revoke',
+            type: "post",
+            data: {id:id},
+            dataType: "json",
+            beforeSend: function () {
+                lightyear.loading('show');
+                $('#button').text("请等待...");
+                $("#button").attr('disabled',true);
+            },
+            complete: function () {
+                lightyear.loading('hide');
+                $('#button').text(text);
+                $("#button").attr('disabled',false);
+            },
+            error: function(){
+                lightyear.notify('服务器错误', 'danger', 60000, 'mdi mdi-emoticon-happy', 'top', 'center');
+            },
+            success: function(data){
+                if(data.flag === 1){
+                    lightyear.notify(data.msg, 'success', 60000, 'mdi mdi-emoticon-happy', 'top', 'center');
+                }else if(data.flag === 2){
+                    lightyear.notify(data.msg, 'danger', 60000, 'mdi mdi-emoticon-happy', 'top', 'center');
+                }else{
+                    lightyear.notify('服务器错误', 'danger', 60000, 'mdi mdi-emoticon-happy', 'top', 'center');
+                }
+            }
+        });
+    }
+    $(":input").val("");
+</script>
+</body>
+</html>

@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>区块链证书管理系统</title>
+<link rel="icon" href="favicon.ico" type="image/ico">
+<meta name="keywords" content="BCMS">
+<meta name="description" content="BCMS">
+<meta name="author" content="lunasec">
+<link href="/css/bootstrap.min.css" rel="stylesheet">
+<link href="/css/materialdesignicons.min.css" rel="stylesheet">
+<link href="/css/animate.css" rel="stylesheet">
+<link href="/css/style.min.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="lyear-layout-web">
+  <div class="lyear-layout-container">
+    <!--左侧导航-->
+    <aside class="lyear-layout-sidebar">
+      
+      <!-- logo -->
+      <div id="logo" class="sidebar-header">
+        <a href="/"><img src="/img/logo.png" title="bcms" alt="bcms" /></a>
+      </div>
+      <div class="lyear-layout-sidebar-scroll"> 
+        
+        <nav class="sidebar-main">
+          <ul class="nav nav-drawer">
+            <li class="nav-item "> <a href="/query"><i class="mdi mdi-magnify"></i> 证书查询</a> </li>
+            <li class="nav-item "> <a href="/verify"><i class="mdi mdi-help"></i> 证书核验</a> </li>
+            <li class="nav-item active"> <a href="/admin/issue"><i class="mdi mdi-account-plus"></i> 证书颁发</a> </li>
+            <li class="nav-item "> <a href="/admin/revoke"><i class="mdi mdi-account-remove"></i> 证书撤销</a> </li>
+          </ul>
+        </nav>
+        
+      </div>
+      
+    </aside>
+    <!--End 左侧导航-->
+    
+    <!--头部信息-->
+    <header class="lyear-layout-header">
+      
+      <nav class="navbar navbar-default">
+        <div class="topbar">
+          
+          <div class="topbar-left">
+            <div class="lyear-aside-toggler">
+              <span class="lyear-toggler-bar"></span>
+              <span class="lyear-toggler-bar"></span>
+              <span class="lyear-toggler-bar"></span>
+            </div>
+            <span class="navbar-page-title"> 证书颁发 </span>
+          </div>
+          
+          <ul class="topbar-right">
+            <li class="dropdown dropdown-profile">
+              <a href="javascript:void(0)" data-toggle="dropdown">
+                <img class="img-avatar img-avatar-48 m-r-10" src="/img/rabbit.gif" alt="头像" />
+              </a>
+            </li>
+            <a class="btn btn-success btn-w-xs btn-round" href="/admin/logout" type="button">退出</a>
+          </ul>
+        </div>
+      </nav>
+      
+    </header>
+    <!--End 头部信息-->
+    
+    <!--页面主要内容-->
+    <main class="lyear-layout-content">
+      
+      <div class="container-fluid">
+        
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-header"><h4>证书颁发</h4></div>
+              <div class="card-body">
+                
+                <form action="#" method="post" class="guide-box" data-navigateable="true">
+                  <ul class="nav-step step-dots">
+                    <li class="nav-step-item active">
+                      <span>步骤一</span>
+                      <a class="active" data-toggle="tab" href="#step-1" style="pointer-events:none" disable=true></a>
+                    </li>
+
+                    <li class="nav-step-item">
+                      <span>步骤二</span>
+                      <a data-toggle="tab" href="#fill_degree_info" style="pointer-events:none" disable=true id="step-2"></a>
+                    </li>
+
+                    <li class="nav-step-item">
+                      <span>步骤三</span>
+                      <a data-toggle="tab" href="#show_degree_info" style="pointer-events:none" disable=true id="step-3"></a>
+                    </li>
+
+                    <li class="nav-step-item">
+                      <span>步骤四</span>
+                      <a data-toggle="tab" href="#step-4" style="pointer-events:none" disable=true></a>
+                    </li>
+                  </ul>
+                  <!--对应内容-->
+                  <div class="nav-step-content">
+                    
+                    <div class="nav-step-pane hidden active" id="step-1">
+                      <div class="form-group">
+                        <p>请选择颁发学位证书或学历证书</p>
+                        <div class="example-box">
+                            <label class="lyear-radio radio-inline radio-primary">
+                              <input type="radio" name="rad" id ="degree"><span>学位证书</span>
+                            </label>
+                            <label class="lyear-radio radio-inline radio-primary">
+                              <input type="radio" name="rad" id="diploma"><span>学历证书</span>
+                            </label>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="nav-step-pane hidden" id="fill_degree_info">
+                      <div class="form-group">
+                        <h4>填写学位证书信息</h4>
+                        <br>
+                        <label>证书编号</label>
+                        <input class="form-control" type="text" name="id" id="degree_id" onchange="change(this.id)">
+                        <label>学位类型</label>
+                        <input class="form-control" type="text" name="degree_type" id="degree_type" onchange="change(this.id)">
+                        <label>姓名</label>
+                        <input class="form-control" type="text" name="name" id="degree_name" onchange="change(this.id)">
+                        <label>性别</label>
+                        <input class="form-control" type="text" name="sex" id="degree_sex" onchange="change(this.id)">
+                        <label>出生日期</label>
+                        <input class="form-control" type="text" name="birthday" id="degree_birthday" onchange="change(this.id)">
+                        <label>院校</label>
+                        <input class="form-control" type="text" name="university" id="degree_university" onchange="change(this.id)">
+                        <label>专业</label>
+                        <input class="form-control" type="text" name="major" id="degree_major" onchange="change(this.id)">
+                        <label>学位门类</label>
+                        <input class="form-control" type="text" name="discipline" id="degree_discipline" onchange="change(this.id)">
+                        <label>校长</label>
+                        <input class="form-control" type="text" name="president" id="degree_president" onchange="change(this.id)">
+                        <label>颁发日期</label>
+                        <input class="form-control" type="text" name="issuedate" id="degree_issuedate" onchange="change(this.id)">
+                      </div>
+                    </div>
+
+                    <div class="nav-step-pane hidden" id="fill_diploma_info">
+                      <div class="form-group">
+                        <h4>填写学历证书信息</h4>
+                        <br>
+                        <label>证书编号</label>
+                        <input class="form-control" type="text" name="id" id="diploma_id" onchange="change(this.id)">
+                        <label>姓名</label>
+                        <input class="form-control" type="text" name="name" id="diploma_name" onchange="change(this.id)">
+                        <label>性别</label>
+                        <input class="form-control" type="text" name="sex" id="diploma_sex" onchange="change(this.id)">
+                        <label>出生日期</label>
+                        <input class="form-control" type="text" name="birthday" id="diploma_birthday" onchange="change(this.id)">
+                        <label>起止时间</label>
+                        <input class="form-control" type="text" name="start_end" id="diploma_start_end" onchange="change(this.id)">
+                        <label>院校</label>
+                        <input class="form-control" type="text" name="schoole" id="diploma_school" onchange="change(this.id)">
+                        <label>专业</label>
+                        <input class="form-control" type="text" name="major" id="diploma_major" onchange="change(this.id)">
+                        <label>学制</label>
+                        <input class="form-control" type="text" name="len_schooling" id="diploma_len_schooling" onchange="change(this.id)">
+                        <label>学历</label>
+                        <input class="form-control" type="text" name="education" id="diploma_education" onchange="change(this.id)">
+                        <label>院（校）长</label>
+                        <input class="form-control" type="text" name="header" id="diploma_header" onchange="change(this.id)">
+                        <label>颁发日期</label>
+                        <input class="form-control" type="text" name="issuedate" id="diploma_issuedate" onchange="change(this.id)">
+                      </div>
+                    </div>
+
+                    <div class="nav-step-pane hidden" id="show_degree_info">
+                        <div class="form-group">
+                          <h4>证书显示如下</h4>
+                          <main class="form-group">
+                            <div class="container-fluid">
+                              <div class="row">
+                                <div class="col-lg-12">
+                                  <div class="card">
+                                    <div class="card-header"><h4>学位证书</h4></div>
+                                    <div class="card-body">
+                                      <div class="table-responsive">
+                                        <table class="table table-bordered table-striped">
+                                          <thead>
+                                            <tr>
+                                              <th>证书编号</th>
+                                              <td colspan="4" id="show_degree_id">未输入</td>
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+                                            <tr>
+                                              <th class="text-nowrap" scope="row" text-align:center>学位类型</th>
+                                              <td colspan="4" id="show_degree_type">未输入</td>
+                                            </tr>
+                                            <tr>
+                                              <th class="text-nowrap" scope="row">姓名</th>
+                                              <td colspan="4" id="show_degree_name">未输入</td>
+                                            </tr>
+                                            <tr>
+                                              <th class="text-nowrap" scope="row">性别</th>
+                                              <td colspan="4" id="show_degree_sex">未输入</td>
+                                            </tr>
+                                            <tr>
+                                              <th class="text-nowrap" scope="row">出生日期</th>
+                                              <td colspan="4" id="show_degree_birthday">未输入</td>
+                                            </tr>
+                                            <tr>
+                                              <th class="text-nowrap" scope="row">院校</th>
+                                              <td colspan="4" id="show_degree_university">未输入</td>
+                                            </tr>
+                                            <tr>
+                                              <th class="text-nowrap" scope="row">专业</th>
+                                              <td colspan="4" id="show_degree_major">未输入</td>
+                                            </tr>
+                                            <tr>
+                                              <th class="text-nowrap" scope="row">学位门类</th>
+                                              <td colspan="4" id="show_degree_discipline">未输入</td>
+                                            </tr>
+                                            <tr>
+                                              <th class="text-nowrap" scope="row">校长</th>
+                                              <td colspan="4" id="show_degree_president">未输入</td>
+                                            </tr>
+                                            <tr>
+                                              <th class="text-nowrap" scope="row">颁发日期</th>
+                                              <td colspan="4" id="show_degree_issuedate">未输入</td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <center>
+                              <button type="button" class="btn btn-default btn-w-md btn-round" id="button1" onclick='check("degree")'>提交证书</button>
+                            </center>
+                          </main>
+                        </div>
+                      </div>
+
+                      <div class="nav-step-pane hidden" id="show_diploma_info">
+                        <div class="form-group">
+                          <h4>证书显示如下</h4>
+                          <main class="form-group">
+                            <div class="container-fluid">
+                              <div class="row">
+                                <div class="col-lg-12">
+                                  <div class="card">
+                                    <div class="card-body">
+                                      <div class="table-responsive">
+                                        <table class="table table-bordered table-striped">
+                                          <thead>
+                                            <tr>
+                                              <th>证书编号</th>
+                                              <td colspan="4" id="show_diploma_id">未输入</td>
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+                                            <tr>
+                                              <th class="text-nowrap" scope="row">姓名</th>
+                                              <td colspan="4" id="show_diploma_name">未输入</td>
+                                            </tr>
+                                            <tr>
+                                              <th class="text-nowrap" scope="row">性别</th>
+                                              <td colspan="4" id="show_diploma_sex">未输入</td>
+                                            </tr>
+                                            <tr>
+                                              <th class="text-nowrap" scope="row">出生日期</th>
+                                              <td colspan="4" id="show_diploma_birthday">未输入</td>
+                                            </tr>
+                                            <tr>
+                                              <th class="text-nowrap" scope="row">起止时间</th>
+                                              <td colspan="4" id="show_diploma_start_end">未输入</td>
+                                            </tr>
+                                            <tr>
+                                              <th class="text-nowrap" scope="row">院校</th>
+                                              <td colspan="4" id="show_diploma_school">未输入</td>
+                                            </tr>
+                                            <tr>
+                                              <th class="text-nowrap" scope="row">专业</th>
+                                              <td colspan="4" id="show_diploma_major">未输入</td>
+                                            </tr>
+                                            <tr>
+                                              <th class="text-nowrap" scope="row">学制</th>
+                                              <td colspan="4" id="show_diploma_len_schooling">未输入</td>
+                                            </tr>
+                                            <tr>
+                                              <th class="text-nowrap" scope="row">学历</th>
+                                              <td colspan="4" id="show_diploma_education">未输入</td>
+                                            </tr>
+                                            <tr>
+                                              <th class="text-nowrap" scope="row">院（校）长</th>
+                                              <td colspan="4" id="show_diploma_header">未输入</td>
+                                            </tr>
+                                            <tr>
+                                              <th class="text-nowrap" scope="row">颁发日期</th>
+                                              <td colspan="4" id="show_diploma_issuedate">未输入</td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <center>
+                              <button type="button" class="btn btn-default btn-w-md btn-round" id="button2" onclick='check("diploma")'>提交证书</button>
+                            </center>
+                          </main>
+                        </div>
+                      </div>
+                    
+                    <div class="nav-step-pane hidden" id="step-4">
+                      <div class="form-group">
+                        <label>下载证书</label>
+                        <br>
+                        <br> 
+                        <button class="btn btn-default btn-w-md btn-round" type="button" onclick='download()'>下载证书</button>
+                        <br>
+                        <br>
+                        <div class="alert alert-danger" role="alert"><span class="mdi mdi-human-greeting"></span>：请尽快下载证书，证书文件将在一小时后删除</div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--End 对应内容-->
+                  <hr>
+                  <div class="nav-step-button">
+                    <button class="btn btn-secondary disabled" data-wizard="prev" type="button">上一步</button>
+                    <button class="btn btn-secondary" data-wizard="next" type="button" id="isCheck">下一步</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        
+      </div>
+      
+    </main>
+    <!--End 页面主要内容-->
+  </div>
+</div>
+
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/perfect-scrollbar.min.js"></script>
+<script src="/js/bootstrap-notify.min.js"></script>
+<script type="text/javascript" src="/js/main.min.js"></script>
+<script type="text/javascript" src="/js/lightyear.js"></script>
+<!--向导插件-->
+<script type="text/javascript" src="/js/jquery.bootstrap.wizard.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    $('.guide-box').bootstrapWizard({
+        'tabClass': 'nav-step',
+        'nextSelector': '[data-wizard="next"]',
+        'previousSelector': '[data-wizard="prev"]',
+        'finishSelector': '[data-wizard="finish"]',
+        'onTabClick': function(e, t, i) {
+            if (!$('.guide-box').is('[data-navigateable="true"]')) return ! 1
+        },
+        'onTabShow': function(e, t, i) {
+            t.children(":gt(" + i + ").complete").removeClass("complete");
+            t.children(":lt(" + i + "):not(.complete)").addClass("complete");
+        }
+    });
+});
+</script>
+<script>
+    var isCheck = document.getElementById("isCheck");
+    window.onload = function () {
+        isCheck.disabled = true;
+    };
+</script>
+<script>
+    var rads = document.getElementsByName("rad");
+    for (var i=0;i<rads.length;i++){
+        rads[i].onchange = function () {
+            isCheck.disabled = false;
+    };
+    }
+</script>
+<script>
+  $("#degree").click(function(){
+    $("#step-2").attr("href", "#fill_degree_info");
+    $('#step-3').attr("href", "#show_degree_info");
+  })
+  $("#diploma").click(function(){
+    $("#step-2").attr("href", "#fill_diploma_info");
+    $('#step-3').attr("href", "#show_diploma_info");
+  })
+
+  function change(id){
+    $('#show_'+id).text($('#'+id).val());
+  }
+  $("[name='rad']").removeAttr("checked");
+  $(":input").val("");
+</script>
+<script>
+    function check(type){
+      if(type === "degree"){
+        var data={
+          cert_type:"1",
+          id:$("#degree_id").val(),
+          degree_type:$("#degree_type").val(),
+          name:$("#degree_name").val(),
+          sex:$("#degree_sex").val(),
+          birthday:$("#degree_birthday").val(),
+          university:$("#degree_university").val(),
+          major:$("#degree_major").val(),
+          discipline:$("#degree_discipline").val(),
+          president:$("#degree_president").val(),
+          issuedate:$("#degree_issuedate").val()
+        }
+      }else if(type === "diploma"){
+        var data={
+          cert_type:"2",
+          id:$("#diploma_id").val(),
+          name:$("#diploma_name").val(),
+          sex:$("#diploma_sex").val(),
+          birthday:$("#diploma_birthday").val(),
+          start_end:$("#diploma_start_end").val(),
+          schoole:$("#diploma_school").val(),
+          major:$("#diploma_major").val(),
+          len_schooling:$("#diploma_len_schooling").val(),
+          education:$("#diploma_education").val(),
+          header:$("#diploma_header").val(),
+          issuedate:$("#diploma_issuedate").val()
+        }
+      }else{
+        lightyear.notify('服务器错误', 'danger', 60000, 'mdi mdi-emoticon-happy', 'top', 'center');
+      }
+      var text=$('#button1').text();
+      $.ajax({
+          url: '/admin/issue',
+          type: "post",
+          data: data,
+          dataType: "json",
+          beforeSend: function () {
+              lightyear.loading('show');
+              $('#button1').text("请等待...");
+              $("#button1").attr('disabled',true);
+              $('#button2').text("请等待...");
+              $("#button2").attr('disabled',true);
+          },
+          complete: function () {
+              lightyear.loading('hide');
+              $('#button1').text(text);
+              $("#button1").attr('disabled',false);
+              $('#button2').text(text);
+              $("#button2").attr('disabled',false);
+          },
+          error: function(){
+              lightyear.notify('服务器错误', 'danger', 60000, 'mdi mdi-emoticon-happy', 'top', 'center');
+          },
+          success: function(data){
+              if(data.flag === 1){
+                  lightyear.notify(data.msg, 'success', 60000, 'mdi mdi-emoticon-happy', 'top', 'center');
+              }else if(data.flag === 2){
+                  lightyear.notify(data.msg, 'danger', 60000, 'mdi mdi-emoticon-happy', 'top', 'center');
+              }else{
+                  lightyear.notify('服务器错误', 'danger', 60000, 'mdi mdi-emoticon-happy', 'top', 'center');
+              }
+          } 
+      });
+    }
+</script>
+<script>
+  function download(){
+    var degree_id=$("#degree_id").val();
+    var diploma_id=$("#diploma_id").val();
+    if(degree_id){
+      window.open("/admin/download?filename=BCMS-"+degree_id);
+    }else if(diploma_id){
+      window.open("/admin/download?filename=BCMS-"+diploma_id);
+    }else{
+      lightyear.notify('证书文件不存在', 'danger', 60000, 'mdi mdi-emoticon-happy', 'top', 'center');
+    }
+  }
+</script>
+
+</body>
+</html>

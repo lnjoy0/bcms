@@ -1,0 +1,44 @@
+INFO [04-30|20:51:38.417] Maximum peer count                       ETH=50 LES=0 total=50
+WARN [04-30|20:51:38.417] The flag --rpc is deprecated and will be removed June 2021, please use --http 
+WARN [04-30|20:51:38.417] The flag --rpcaddr is deprecated and will be removed June 2021, please use --http.addr 
+WARN [04-30|20:51:38.417] The flag --rpcport is deprecated and will be removed June 2021, please use --http.port 
+WARN [04-30|20:51:38.417] The flag --rpccorsdomain is deprecated and will be removed June 2021, please use --http.corsdomain 
+WARN [04-30|20:51:38.417] The flag --rpcapi is deprecated and will be removed June 2021, please use --http.api 
+INFO [04-30|20:51:38.417] Smartcard socket not found, disabling    err="stat /run/pcscd/pcscd.comm: no such file or directory"
+INFO [04-30|20:51:38.419] Set global gas cap                       cap=25000000
+INFO [04-30|20:51:38.419] Allocated trie memory caches             clean=154.00MiB dirty=256.00MiB
+INFO [04-30|20:51:38.420] Allocated cache and file handles         database=/home/lnjoy/bcms/deepeth/geth/chaindata cache=512.00MiB handles=524288
+INFO [04-30|20:51:38.446] Opened ancient database                  database=/home/lnjoy/bcms/deepeth/geth/chaindata/ancient readonly=false
+INFO [04-30|20:51:38.453] Initialised chain configuration          config="{ChainID: 4505 Homestead: 0 DAO: 0 DAOSupport: true EIP150: 0 EIP155: 0 EIP158: 0 Byzantium: 0 Constantinople: 0 Petersburg: 0 Istanbul: <nil>, Muir Glacier: <nil>, Berlin: <nil>, YOLO v3: <nil>, Engine: ethash}"
+INFO [04-30|20:51:38.455] Disk storage enabled for ethash caches   dir=/home/lnjoy/bcms/deepeth/geth/ethash count=3
+INFO [04-30|20:51:38.455] Disk storage enabled for ethash DAGs     dir=/home/lnjoy/.ethash                  count=2
+INFO [04-30|20:51:38.457] Initialising Ethereum protocol           network=4505 dbversion=8
+INFO [04-30|20:51:38.462] Loaded most recent local header          number=2357 hash="f985bb…da20b7" td=532986962 age=20m30s
+INFO [04-30|20:51:38.462] Loaded most recent local full block      number=2357 hash="f985bb…da20b7" td=532986962 age=20m30s
+INFO [04-30|20:51:38.462] Loaded most recent local fast block      number=2357 hash="f985bb…da20b7" td=532986962 age=20m30s
+INFO [04-30|20:51:38.468] Setting new local account                address=0xEDe12c22fC58C4239a883938643F5B91a4426c14
+INFO [04-30|20:51:38.468] Loaded local transaction journal         transactions=1 dropped=0
+INFO [04-30|20:51:38.469] Regenerated local transaction journal    transactions=1 accounts=1
+WARN [04-30|20:51:38.469] Switch sync mode from fast sync to full sync 
+INFO [04-30|20:51:38.470] Starting peer-to-peer node               instance=Geth/v1.10.2-unstable-73ed6898-20210401/linux-amd64/go1.16.3
+INFO [04-30|20:51:38.479] IPC endpoint opened                      url=/home/lnjoy/bcms/deepeth/geth.ipc
+INFO [04-30|20:51:38.480] HTTP server started                      endpoint=[::]:8545 prefix= cors=* vhosts=localhost
+INFO [04-30|20:51:38.485] New local node record                    seq=4 id=e00d6593fd8c19a8 ip=127.0.0.1 udp=0 tcp=30303
+INFO [04-30|20:51:38.485] Started P2P networking                   self="enode://b0e05c94e12c3637f1ad1ab7fa9954726174104cf523823e5e606b57059058c336c067837e964a1d3139df0698cbcac3fa135f750d3793e7acffa6f0d05f9698@127.0.0.1:30303?discport=0"
+INFO [04-30|20:51:38.542] Etherbase automatically configured       address=0xEA56710f1E5b551e19Dba9155Ce93868503A59b1
+WARN [04-30|20:52:22.849] Served eth_sendRawTransaction            conn=127.0.0.1:46958 reqid=2 t="397.471µs" err="replacement transaction underpriced"
+INFO [04-30|20:52:42.080] HTTP server stopped                      endpoint=[::]:8545
+INFO [04-30|20:52:42.080] IPC endpoint closed                      url=/home/lnjoy/bcms/deepeth/geth.ipc
+INFO [04-30|20:52:42.080] Ethereum protocol stopped 
+INFO [04-30|20:52:42.080] Transaction pool stopped 
+INFO [04-30|20:52:42.081] Writing cached state to disk             block=2357 hash="f985bb…da20b7" root="b48b20…8290e7"
+INFO [04-30|20:52:42.082] Persisted trie from memory database      nodes=0 size=0.00B time="4.388µs" gcnodes=0 gcsize=0.00B gctime=0s livenodes=1 livesize=0.00B
+INFO [04-30|20:52:42.082] Writing cached state to disk             block=2356 hash="6459d6…a71fad" root="8d7992…1cbc41"
+INFO [04-30|20:52:42.082] Persisted trie from memory database      nodes=0 size=0.00B time="1.894µs" gcnodes=0 gcsize=0.00B gctime=0s livenodes=1 livesize=0.00B
+INFO [04-30|20:52:42.082] Writing cached state to disk             block=2230 hash="67f5e8…204cc4" root="2d2128…49bc58"
+INFO [04-30|20:52:42.082] Persisted trie from memory database      nodes=0 size=0.00B time="2.044µs" gcnodes=0 gcsize=0.00B gctime=0s livenodes=1 livesize=0.00B
+INFO [04-30|20:52:42.082] Writing snapshot state to disk           root="d9f5c9…de0370"
+INFO [04-30|20:52:42.082] Persisted trie from memory database      nodes=0 size=0.00B time="1.21µs"  gcnodes=0 gcsize=0.00B gctime=0s livenodes=1 livesize=0.00B
+INFO [04-30|20:52:42.082] Writing clean trie cache to disk         path=/home/lnjoy/bcms/deepeth/geth/triecache threads=2
+INFO [04-30|20:52:42.084] Persisted the clean trie cache           path=/home/lnjoy/bcms/deepeth/geth/triecache elapsed=2.498ms
+INFO [04-30|20:52:42.084] Blockchain stopped 
