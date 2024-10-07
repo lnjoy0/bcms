@@ -9,6 +9,8 @@
 
 使用以太坊搭建私有链部署智能合约进行测试，然后将智能合约部署在以太坊ropsten测试网上，使用Solidity语言的Truffle框架开发智能合约。使用Node.js的Express框架搭建web服务器进行该系统的后端逻辑处理，同时使用web3.js与智能合约进行交互。前端web页面使用Handlebars模板引擎，对html页面进行渲染，并且使用Ajax进行与后端的数据交互，jquery进行前端逻辑处理。证书的加密与签名使用国密SM2算法，证书hash值的计算使用国密SM3算法。
 
+系统功能包括颁发证书、查询证书、核验证书与撤销证书。
+
 ## 需求模型
 
 ![图片](https://github.com/user-attachments/assets/91a2a6e8-df5e-46f3-8ee2-000ff394aa39)
